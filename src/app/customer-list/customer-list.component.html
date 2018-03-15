@@ -1,0 +1,12 @@
+<h2>
+  customer-list!
+</h2>
+<ul>
+  <li *ngFor="let cust of customers" 
+  (click)="customer=cust"
+  [ngClass]="{selected: customer===cust}">
+  {{cust.name}}</li>
+</ul>
+<div *ngIf="customer">
+  <app-customer-detail [customer]="customer" (shift)="shift($event)"></app-customer-detail>
+</div>
